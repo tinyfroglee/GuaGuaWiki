@@ -1,0 +1,56 @@
+created: 20211014033723237
+creator: GuaGua
+modified: 20211014034051360
+modifier: GuaGua
+tags: PHP
+title: PHP实现多进程
+tmap.id: 3aae0afa-8c3c-4925-87ec-2a6720cdbaef
+type: text/vnd.tiddlywiki
+
+test.php
+
+```php
+$arr = ['30000000', '500000000', ['7000000000', '8000000']];
+foreach ($arr as $key => $item) {
+    $pid[$key] = pcntl_fork();
+    if ($pid[$key] == -1) {
+        die('could not fork');
+    }
+
+    if (!$pid[$key]) {
+        if (is_array($item)) {
+            foreach ($item as $k => $value) {
+                $pid[$k] = pcntl_fork();
+                if (!$pid[$k]) {
+                    for ($j = 0; $j < $value; $j++) {
+                        $con1 = file_get_contents('./' . $value . '.txt');
+                        file_put_contents('./' . $value . '.txt', $con1 . '#' . $j);
+                    }
+                    exit;
+                }
+            }
+        } else {
+            for ($i = 0; $i < $item; $i++) {
+                $con = file_get_contents('./' . $item . '.txt');
+                file_put_contents('./' . $item . '.txt', $con . '#' . $i);
+            }
+        }
+        exit;
+    }
+}
+```
+
+```shell
+# 执行文件
+php -f test.php
+```
+
+```shell
+# 查看进程
+ps -ef | grep test
+```
+
+```shell
+# 关闭进程
+# kill -9 pid
+```
