@@ -1,0 +1,20 @@
+created: 20211014041316662
+creator: GuaGua
+modified: 20211014041646723
+modifier: GuaGua
+tags: [[ VUE]]
+title: 解决固定表头后单元格错位
+tmap.id: c887cdaa-1b22-4357-b069-c918de399ad9
+type: text/vnd.tiddlywiki
+
+```VUE
+  watch: {
+    // 监听 table 数据对象
+    list: function() {
+      // 重新渲染 table 组件布局，解决固定表头出现的表头错位问题
+      this.$nextTick(() => {
+        this.$refs.medalsTable.doLayout()
+      })
+    }
+  }
+```
