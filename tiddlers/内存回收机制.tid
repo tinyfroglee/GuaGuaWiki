@@ -1,0 +1,13 @@
+created: 20211014031206293
+creator: GuaGua
+modified: 20211014031512644
+modifier: GuaGua
+tags: Redis
+title: 内存回收机制
+tmap.id: 615383a8-466c-46c6-8c97-0f2fafca35db
+type: text/vnd.tiddlywiki
+
+Redis 的内存回收机制主要体现在以下两个方面：
+
+* 删除到达过期时间的键对象，依赖 [[过期键删除策略]]
+* 内存使用达到 maxmemory 上限时，触发 [[内存溢出控制策略]]

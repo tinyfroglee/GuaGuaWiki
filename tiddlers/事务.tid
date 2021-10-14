@@ -1,0 +1,12 @@
+created: 20211014032630292
+creator: GuaGua
+modified: 20211014032733140
+modifier: GuaGua
+tags: MySQL
+title: 事务
+tmap.id: d69890ab-5442-4702-90c2-b575c3baf7a5
+type: text/vnd.tiddlywiki
+
+!! 事务特性
+
+!! 隔离级别

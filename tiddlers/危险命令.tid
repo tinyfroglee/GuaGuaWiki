@@ -1,0 +1,32 @@
+created: 20211014031444222
+creator: GuaGua
+modified: 20211014031627120
+modifier: GuaGua
+tags: Redis
+title: 危险命令
+tmap.id: e4b679eb-3729-4838-916d-705c19d5c7b1
+type: text/vnd.tiddlywiki
+
+!! KEYS 命令
+
+* 命令格式
+
+<<<
+KEYS pattern
+<<<
+
+* 功能
+
+<<<
+用于查找所有符合给定模式 `pattern` 的键。时间复杂度 O(N)，N 为数据库中键的个数。
+<<<
+
+* 
+
+!! FLUSHDB 命令
+
+!! FLUSHALL 命令
+
+!! CONFIG 命令
+
+[[Redis 的 KEYS 命令不能乱用啊|https://blog.csdn.net/qq_39669058/article/details/107647688]]

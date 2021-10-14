@@ -1,0 +1,29 @@
+created: 20211014031600688
+creator: GuaGua
+modified: 20211014031603197
+modifier: GuaGua
+tags: 内存回收机制
+title: 内存溢出控制策略
+tmap.id: be277733-a6b7-47d4-a584-00a9a6ff6a00
+type: text/vnd.tiddlywiki
+
+!! 受 `maxmemory-policy` 参数控制，支持 6 种策略：
+
+* `noeviction`：默认策略，不会删除任何数据，拒绝所有写入操作并返 回客户端错误信息（error）OOM command not allowed when used memory，此时 Redis 只响应读操作。
+* `volatile-lru`：根据 LRU 算法删除设置了超时属性（expire）的键，直到腾出足够空间为止。如果没有可删除的键对象，回退到 noeviction 策略。
+* `allkeys-lru`：根据 LRU 算法删除键，不管数据有没有设置超时属性， 直到腾出足够空间为止。
+* `allkeys-random`：随机删除所有键，直到腾出足够空间为止。
+* `volatile-random`：随机删除过期键，直到腾出足够空间为止。
+* `volatile-ttl`：根据键值对象的 ttl 属性，删除最近将要过期数据。如果没有，回退到 noeviction 策略。
+
+!! 内存溢出控制策略动态配置命令：
+
+```redis-shell
+config set maxmemory-policy {policy}
+```
+
+!! 应当注意的问题：
+
+当 Redis 一直工作在内存溢出`（used_memory > maxmemory）`的状态下且设置非 `noeviction` 策略时，会频繁地触发回收内存的操作，影响 Redis 服务器的性能。
+
+频繁执行回收内存成本很高，主要包括查找可回收键和删除键的开销；如果当前 Redis 有从节点，回收内存操作对应的删除命令会同步到从节点，导致写放大的问题。

@@ -1,0 +1,38 @@
+created: 20211014031534371
+creator: GuaGua
+modified: 20211014031542778
+modifier: GuaGua
+tags: 内存回收机制
+title: 过期键删除策略
+tmap.id: 4ee30c6a-435f-4741-bee9-6698ce78673c
+type: text/vnd.tiddlywiki
+
+!! 3 种删除策略
+
+* 定时删除：在设置键的过期时间的同时，创建一个定时器（timer），当键的过期时间到来时，立即执行对键的删除操作。
+
+** 可以立即清除过期的数据，对内存友好。
+
+** 但是会占用太多 CPU 时间，影响服务器的响应时间和吞吐量。当过期键比较多时，删除过期键这一行为可能会占用较多 CPU 时间。
+
+* 惰性删除：只有每次访问获取一个键时，才检查判断该键是否已过期，过期则清除。
+
+** 可以最大化地节省 CPU 资源。
+
+** 但会浪费太多内存，有内存泄漏的危险。极端情况下，可能出现大量的过期键一直没有被访问，从而无法得到及时删除，进而占用大量内存。
+
+* 定期删除：每隔一段时间，扫描 Redis 数据库的 `expires` 字典中一定数量的键，并清除已过期的键。
+
+** 至于要检查多少数据库，要删除多少过期键，由算法决定。
+
+** 是前两种策略的一种折中方案。要求服务器合理设置定时扫描的频率和时长，进而实现 CPU 和内存资源达到最优的平衡效果。
+
+!! 思考：如何配置定期删除策略？
+
+[[Redis 内存回收机制详解|https://www.cnblogs.com/chenhaoyu/p/14758028.html]]
+
+[[redis-全局hash表和expires过期字典|https://blog.csdn.net/qq_40337086/article/details/113742900]]
+
+[[redis 过期策略及内存回收机制|https://blog.csdn.net/alex_xfboy/article/details/88959647]]
+
+[[5分钟快速理解Redis的内存回收机制|https://github.com/superleeyom/blog/issues/12]]
