@@ -1,6 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
 	<url>
+		<loc>https://onetwo.ren/wiki/#:HTTPS</loc>
+		<lastmod>2021-10-19</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:HTTP/2</loc>
+		<lastmod>2021-10-19</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:HTTP/3</loc>
+		<lastmod>2021-10-19</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:JOIN%2520底层实现原理</loc>
 		<lastmod>2021-10-14</lastmod>
 		<changefreq>monthly</changefreq>
@@ -73,6 +91,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:一致性哈希</loc>
+		<lastmod>2021-10-19</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:事务</loc>
 		<lastmod>2021-10-14</lastmod>
 		<changefreq>monthly</changefreq>
@@ -123,6 +147,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:如何理解单线程与多线程？</loc>
 		<lastmod>2021-10-14</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:数据库与缓存双写一致性问题</loc>
+		<lastmod>2021-10-19</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
