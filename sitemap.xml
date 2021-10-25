@@ -7,6 +7,18 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:Composer</loc>
+		<lastmod>2021-10-25</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:Draft%2520of%2520&apos;Composer&apos;%2520by%2520GuaGua</loc>
+		<lastmod>2021-10-25</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:HTTPS</loc>
 		<lastmod>2021-10-19</lastmod>
 		<changefreq>monthly</changefreq>
@@ -49,8 +61,20 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:PHP安装扩展</loc>
+		<lastmod>2021-10-25</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:PHP实现多进程</loc>
 		<lastmod>2021-10-14</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:Protocol%2520Buffers</loc>
+		<lastmod>2021-10-22</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
@@ -103,6 +127,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:gRPC</loc>
+		<lastmod>2021-10-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:一致性哈希</loc>
 		<lastmod>2021-10-19</lastmod>
 		<changefreq>monthly</changefreq>
@@ -145,6 +175,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:压测工具</loc>
+		<lastmod>2021-10-25</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:启发式问题</loc>
 		<lastmod>2021-10-19</lastmod>
 		<changefreq>monthly</changefreq>
@@ -171,12 +207,6 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:日常与社交</loc>
 		<lastmod>2021-10-18</lastmod>
-		<changefreq>monthly</changefreq>
-		<priority>0.5</priority>
-	</url>
-	<url>
-		<loc>https://onetwo.ren/wiki/#:日志</loc>
-		<lastmod>2021-10-14</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
