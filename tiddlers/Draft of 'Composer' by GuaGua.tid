@@ -1,0 +1,16 @@
+created: 20211025022309065
+creator: GuaGua
+draft.of: Composer
+draft.title: Composer
+modified: 20211025062204497
+modifier: GuaGua
+tags: PHP
+title: Draft of 'Composer' by GuaGua
+tmap.id: 70ac5d87-20b1-4de1-bd22-27643f7f8bd5
+type: text/vnd.tiddlywiki
+
+直接运行 composer 时，
+
+```bash
+echo '/Applications/MAMP/bin/php/php7.4.16/bin/php /Applications/MAMP/bin/php/php7.4.16/bin/composer.phar $@' > composer
+```

@@ -1,0 +1,13 @@
+created: 20211022072903878
+creator: GuaGua
+modified: 20211022101541873
+modifier: GuaGua
+tags: 计算机知识
+title: gRPC
+tmap.id: 2c9e93e8-e32b-40fd-81a8-886916b2fbde
+type: text/vnd.tiddlywiki
+
+[[gRPC|https://www.grpc.io/docs/what-is-grpc/]] 是谷歌开源的一个 RPC 框架，面向移动和 HTTP/2 设计。
+
+* 内容交换格式：[[ProtoBuf(Google Protocol Buffers)|https://developers.google.com/protocol-buffers/docs/overview]]，二进制编码，（反）序列化速度快，压缩效率高。
+* 传输协议采用 HTTP/2。

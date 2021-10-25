@@ -1,0 +1,89 @@
+created: 20211025022653829
+creator: GuaGua
+modified: 20211025061934976
+modifier: GuaGua
+tags: PHP
+title: PHP安装扩展
+tmap.id: 7a5980e6-ace0-4e5e-9046-e6200a33a00f
+type: text/vnd.tiddlywiki
+
+!! 方法一、pecl 安装
+
+```bash
+# pecl install 扩展名
+pecl install redis
+
+php --ini
+# 在 php.ini 文件中添加 extension=redis.so
+```
+
+''[[pecl|https://pecl.php.net/]] 与 [[pear|https://pear.php.net/]] 的区别''
+
+* pecl：PHP 的标准扩展，Windows 下以 dll 形式存在，Linux 下需要单独进行编译。内容表现为根据 PHP 官方的标准用 C语言写成，源码开放但一般无法随意更改。
+* pear：PHP 的扩展代码包，所有扩展均以 PHP 代码的形式存在。使用时要在代码中进行 include。
+
+!! 方法二、phpize 安装
+
+一般用于安装 PHP 源码 ext 目录中没有的扩展。
+
+[[pecl 扩展文件源码搜索|https://pecl.php.net/package-search.php]]
+
+```bash
+# 下载扩展文件源码（可下载到任意目录）
+wget https://pecl.php.net/get/redis-5.3.4.tgz
+
+# 解压文件
+tar -xzvf redis-5.3.4.tgz
+
+# 进入源码目录
+cd redis-5.3.4
+
+# 运行 phpize（多版本 PHP 时，注意指定路径使用 phpize）
+# xxx/php7.4.2/bin/phpize
+phpize
+
+# 运行 configure 命令（多版本 PHP 时，指定 php-config 路径）
+# ./configure --with-php-config=xxx/php7.4.2/bin/php-config
+./configure
+
+# 执行 make
+# -j数字，最多允许 n 个编译命令同时执行，更有效地利用 CPU 资源，加快编译效率。一般来说，最大并行任务数为 CPU核数*2
+make -j12 && make install
+
+php --ini
+# 在 php.ini 文件中添加 extension=redis.so
+```
+
+!! 方法三、源码编译安装（一般是安装 PHP 自带的扩展）
+
+本方法一般用来安装 PHP 自带的扩展，例如 pcntl 扩展。除了用 phpize 编译指定扩展，也可以在 PHP 源码根目录重新编译整个 PHP，在编译时用参数添加扩展。
+
+[[PHP 历史版本|https://www.php.net/releases/]]
+
+```bash
+# 查看 PHP CLI 版本
+php -v
+
+# 下载对应版本 PHP 源码（可下载到任意目录）
+wget https://www.php.net/distributions/php-7.4.2.tar.gz
+
+# 解压文件
+tar -xzvf php-7.4.2.tar.gz
+
+# 进入源码扩展目录
+cd php-7.4.2/ext/pcntl
+
+# 运行 phpize（对应当前要安装扩展的 PHP）
+# xxx/php7.4.2/bin/phpize
+phpize
+
+# 运行 configure 命令（指定 php-config 路径为要安装扩展的 PHP）
+# ./configure --with-php-config=xxx/php7.4.2/bin/php-config
+./configure
+
+# 执行 make
+make -j12 && make install
+
+php --ini
+# 在 php.ini 文件中添加 extension=pcntl.so
+```

@@ -1,0 +1,94 @@
+created: 20211025111011395
+creator: GuaGua
+modified: 20211025115647165
+modifier: GuaGua
+tags: 运维
+title: 压测工具
+tmap.id: 66c7dedd-bb6b-4411-b776-ae4dc579820d
+type: text/vnd.tiddlywiki
+
+!! [[ab|http://httpd.apache.org/docs/2.0/programs/ab.html]]
+
+!!! ab 简介
+
+ApacheBench，用于 web 性能压力测试，ab 命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。
+
+ab 命令对发出负载的计算机要求很低，不会占用很高CPU和内存，但却会给目标服务器造成巨大的负载。
+
+ab 是 apache 服务器的附属工具，当然如果不需要 apache 也可以独立安装。
+
+!!! 常用参数
+
+* `-c` 线程数（并发数）
+* `-n` 请求数，总共发送多少请求
+* `-p` POST请求使用文件
+* `-T` 请求类型，Content-Type，可以用 `-H` 替代
+* `-H` 请求头
+
+!!! 请求示例
+
+```bash
+# 创建 10 个线程，累计向百度发送 100 个请求
+ab -c 10 -n 100 https://www.baidu.com/
+
+# POST 请求
+echo 'a=1&b=2' > data.txt
+ab -c 10 -n 100 -p data.txt -T 'application/x-www-form-urlencoded' https://www.baidu.com/
+
+echo '{"a":1}' > data.json
+ab -c 10 -n 100 -p data.json -T 'application/json' https://www.baidu.com/
+```
+
+!!! 请求结果解读
+
+```text
+This is ApacheBench, Version 2.3 <$Revision: 1843412 $>
+Copyright 1996 Adam Twiss, Zeus Technology Ltd, http://www.zeustech.net/
+Licensed to The Apache Software Foundation, http://www.apache.org/
+
+Benchmarking www.baidu.com (be patient).....done
+
+
+Server Software:        BWS/1.1 （服务器软件名称及版本信息）
+Server Hostname:        www.baidu.com （服务器主机名）
+Server Port:            443 （服务器端口）
+SSL/TLS Protocol:       TLSv1.2,ECDHE-RSA-AES128-GCM-SHA256,2048,128 （SSL/TLS 协议）
+Server Temp Key:        ECDH P-256 256 bits
+TLS Server Name:        www.baidu.com
+
+Document Path:          / （请求的 URL 中的根绝对路径）
+Document Length:        227 bytes （HTTP 相应数据的正文长度）
+
+Concurrency Level:      10 （并发数）
+Time taken for tests:   0.733 seconds （本次所有请求被处理完成所花费的总时间）
+Complete requests:      100 （压力测试的总次数）
+Failed requests:        0 （失败的请求数量。失败是指请求在连接服务器、发送数据等环节发生异常，以及无响应超时的情况。如果接收到的 HTTP 响应数据头信息含有 2XX 以外的状态码，测试结果会显示另一个名为“Non-2xx responses”的统计项，这些请求不算在失败的请求中。）
+Total transferred:      111094 bytes （所有请求的响应数据长度总和，包括每个 HTTP 响应数据的头信息和正文数据长度。不包括 HTTP 请求数据的长度，仅仅为 web 服务器向流向用户应用层数据的总长度。）
+HTML transferred:       22700 bytes （所有请求的响应数据中正文数据长度总和，即去除了 Total transferred 中的头信息长度。）
+Requests per second:    136.44 [#/sec] (mean) （吞吐率，计算公式：Complete requests / Time taken for tests）
+Time per request:       73.290 [ms] (mean) （用户平均请求等待时间，计算公式：Time taken for tests/（Complete requests / Concurrency Level））
+Time per request:       7.329 [ms] (mean, across all concurrent requests) （服务器平均请求等待时间，计算公式：Time taken for tests / Complete requests，正好是吞吐率的倒数。也可以这么统计：Time per request / Concurrency Level）
+Transfer rate:          148.03 [Kbytes/sec] received （传输速率，表示这些请求在单位时间内从服务器获取的数据长度，计算公式：Total trnasferred / Time taken for tests，这个统计很好的说明服务器的处理能力达到极限时，其出口宽带的需求量）
+
+Connection Times (ms)
+              min  mean[+/-sd] median   max
+Connect:       30   47  10.3     46      89
+Processing:     8   15   6.2     13      40
+Waiting:        8   14   5.8     13      39
+Total:         42   62  10.8     62     115
+
+（响应时间百分位）
+Percentage of the requests served within a certain time (ms)
+  50%     62
+  66%     64
+  75%     67
+  80%     69
+  90%     74
+  95%     81
+  98%     94
+  99%    115
+ 100%    115 (longest request)
+```
+
+!! [[wrk|https://github.com/wg/wrk]]
+
