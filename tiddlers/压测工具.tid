@@ -1,8 +1,8 @@
 created: 20211025111011395
 creator: GuaGua
-modified: 20211025115647165
+modified: 20211026023843110
 modifier: GuaGua
-tags: 运维
+tags: 运维 ab wrk
 title: 压测工具
 tmap.id: 66c7dedd-bb6b-4411-b776-ae4dc579820d
 type: text/vnd.tiddlywiki
@@ -92,3 +92,49 @@ Percentage of the requests served within a certain time (ms)
 
 !! [[wrk|https://github.com/wg/wrk]]
 
+!!! wrk 简介
+
+与 ab 的区别是 wrk 可以指定持续压测的时间（例如：持续打压30分钟）并且支持 lua 脚本的执行，支持多个URL的压测，更加具备扩展性和灵活性。
+
+* [[如何在Ubuntu 14.04上使用wrk对HTTP延迟进行基准测试|https://cloud.tencent.com/developer/article/1346649]]
+
+!!! 常用参数
+
+* `-t` 线程数（并发数）
+* `-c` 连接数
+* `-d` 请求持续时间
+* `-s` 通过 lua 脚本发送表单请求（[[参考脚本|https://github.com/wg/wrk/tree/master/scripts]]）
+* `-H` 请求头
+* `--latency` 查看响应时间百分位分布
+
+!!! 请求示例
+```bash
+# 开2个线程，建立6个连接，持续请求百度5s
+wrk -t 2 -c 6 -d 5s https://www.baidu.com
+
+# 使用脚本发送表单请求
+echo 'wrk.method = "POST"
+wrk.body   = "login=sammy&password=test"
+wrk.headers["Content-Type"] = "application/x-www-form-urlencoded"' > post.lua
+wrk -t 2 -c 6 -d 5s -s post.lua https://www.baidu.com
+```
+
+!!! 请求结果解读
+```text
+Running 5s test @ https://www.baidu.com
+  2 threads and 6 connections
+  2 个线程，6 个连接，但不是一个线程对应一个连接
+  Thread Stats   Avg      Stdev     Max   +/- Stdev
+    Latency    12.58ms    5.54ms 123.51ms   97.67%
+    Req/Sec   242.41     19.18   280.00     80.00%
+  单个线程的统计数据	平均值	标准偏差	最大值	正负一个标准差占比
+    延迟时间
+    单个线程每秒完成的请求数
+  主要关注平均值和最大值，标准偏差若太大说明样本离散程度高，可能系统性能波动很大
+  2421 requests in 5.01s, 36.28MB read
+  5 秒内总共有 2421 个请求，共读取 36.28MB 数据
+  Socket errors: connect 0, read 6, write 0, timeout 0
+  6 个读错误
+Requests/sec:    482.93 所有线程平均每秒完成了 482.93 个请求
+Transfer/sec:      7.24MB 所有线程平均每秒读取 7.24MB 数据
+```
