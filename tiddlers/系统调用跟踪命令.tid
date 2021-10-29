@@ -1,0 +1,16 @@
+created: 20211028043201449
+creator: GuaGua
+modified: 20211028115002622
+modifier: GuaGua
+tags: 运维
+title: 系统调用跟踪命令
+tmap.id: c506928e-95b7-4d8c-a1c7-b453551d7a7f
+type: text/vnd.tiddlywiki
+
+跟踪进程执行时的系统调用和所接收的信号。
+
+!! [[strace|https://strace.io/]]
+* 运行于 Linux 系统。
+
+!! dtruss
+* 运行于 Mac 系统。

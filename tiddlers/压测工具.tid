@@ -1,6 +1,6 @@
 created: 20211025111011395
 creator: GuaGua
-modified: 20211026023843110
+modified: 20211027040106315
 modifier: GuaGua
 tags: 运维 ab wrk
 title: 压测工具
@@ -9,7 +9,7 @@ type: text/vnd.tiddlywiki
 
 !! [[ab|http://httpd.apache.org/docs/2.0/programs/ab.html]]
 
-!!! ab 简介
+!!! 简介
 
 ApacheBench，用于 web 性能压力测试，ab 命令会创建很多的并发访问线程，模拟多个访问者同时对某一URL地址进行访问。
 
@@ -92,7 +92,7 @@ Percentage of the requests served within a certain time (ms)
 
 !! [[wrk|https://github.com/wg/wrk]]
 
-!!! wrk 简介
+!!! 简介
 
 与 ab 的区别是 wrk 可以指定持续压测的时间（例如：持续打压30分钟）并且支持 lua 脚本的执行，支持多个URL的压测，更加具备扩展性和灵活性。
 
@@ -138,3 +138,9 @@ Running 5s test @ https://www.baidu.com
 Requests/sec:    482.93 所有线程平均每秒完成了 482.93 个请求
 Transfer/sec:      7.24MB 所有线程平均每秒读取 7.24MB 数据
 ```
+
+!! [[ghz|https://ghz.sh/docs/intro]]
+
+!!! 简介
+
+[[gRPC|gRPC]] 压测工具。

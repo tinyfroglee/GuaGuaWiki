@@ -1,14 +1,26 @@
 created: 20211022104536442
 creator: GuaGua
-modified: 20211022104947627
+modified: 20211027035855232
 modifier: GuaGua
 tags: gRPC
 title: Protocol Buffers
 tmap.id: 8e16977d-abc4-4b38-afa6-7cd0edbfebbb
 type: text/vnd.tiddlywiki
 
-定义语法
+''定义语法''
 
 ```proto3
 syntax = "proto3";
 ```
+
+''字段序号''
+
+* 定义的消息中每个字段都有一个唯一序号。
+* 字段序号在 1 到 15 范围内占用 1 个字节来编码，包括字段序号和字段类型；字段序号在 16 到2047范围内占用 2 个字节。所以应该为经常使用的消息元素保留 1 到 15 的序号。
+* 最小字段序号是 1 最大为 2^^29^^-1（536,870,911），但不能使用 19000 到 19999（FieldDescriptor::kFirstReservedNumber 到 FieldDescriptor::kLastReservedNumber），这些是Protocol Buffers 实现预留的。
+
+''字段规则（proto3）''
+
+* ~~`required`：已移除~~
+* `singular`：默认值，该字段可以出现 0 次或 1 次（不能超过 1 次）。由 optional 改名而来。
+* `repeated`：该字段可以重复任意多次（包括 0 次）。默认使用 `packed` 编码（[[关于packed|https://developers.google.com/protocol-buffers/docs/encoding#packed]]）。
