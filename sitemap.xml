@@ -73,6 +73,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:PHP实现%2520websocket%2520编程</loc>
+		<lastmod>2021-10-29</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:PHP实现多进程</loc>
 		<lastmod>2021-10-14</lastmod>
 		<changefreq>monthly</changefreq>
@@ -80,7 +86,7 @@
 	</url>
 	<url>
 		<loc>https://onetwo.ren/wiki/#:Protocol%2520Buffers</loc>
-		<lastmod>2021-10-22</lastmod>
+		<lastmod>2021-10-27</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
@@ -182,7 +188,7 @@
 	</url>
 	<url>
 		<loc>https://onetwo.ren/wiki/#:压测工具</loc>
-		<lastmod>2021-10-26</lastmod>
+		<lastmod>2021-10-27</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
@@ -213,6 +219,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:日常与社交</loc>
 		<lastmod>2021-10-18</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:系统调用跟踪命令</loc>
+		<lastmod>2021-10-28</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
