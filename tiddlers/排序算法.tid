@@ -1,0 +1,64 @@
+created: 20211102094544293
+creator: GuaGua
+modified: 20211102094620570
+modifier: GuaGua
+tags: 算法
+title: 排序算法
+tmap.id: 06361c54-5ddc-4784-b8c7-ec76df60ceb3
+type: text/vnd.tiddlywiki
+
+!! 堆排序
+
+```php
+<?php
+// 小顶堆降序排序
+
+$arr = [49, 38, 65, 97, 76, 13, 27, 50];
+$count = count($arr);   // 数组元素数量，也是待排序堆的元素数量
+
+// 第一次排序交换，需要基于已构建好的堆
+buildHeap($arr, $count);
+
+$i = $count - 1;
+// 最后一个元素不需要排序交换
+while ($i > 0) {
+    // 把堆顶数据放到当前堆的最后一位
+    swap($arr, $i, 0);
+    // 当前堆的最后一位已用来存放堆顶元素，待排序堆空间减 1
+    $count--;
+    // 重新构建堆
+    buildHeap($arr, $count);
+    $i--;
+}
+
+function buildHeap(&$arr, $arr_size)
+{
+    // 最后一个非叶子节点下标
+    $index = (int) ($arr_size / 2) - 1;
+    for ($i = $index; $i >= 0; $i--) {
+        $left = 2 * $i + 1; // 左节点下标
+        $right = 2 * $i + 2;    // 右节点下标
+        $min = $i;  // 假设父节点是最小节点
+
+        if ($left < $arr_size && $arr[$left] < $arr[$min]) {
+            $min = $left;
+        }
+
+        if ($right < $arr_size && $arr[$right] < $arr[$min]) {
+            $min = $right;
+        }
+
+        if ($min !== $i) {
+            swap($arr, $min, $i);
+        }
+    }
+}
+
+function swap(&$arr, $i, $j)
+{
+    $temp = $arr[$i];
+    $arr[$i] = $arr[$j];
+    $arr[$j] = $temp;
+}
+
+```
