@@ -217,6 +217,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:排序算法</loc>
+		<lastmod>2021-11-02</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:数据库与缓存双写一致性问题</loc>
 		<lastmod>2021-10-19</lastmod>
 		<changefreq>monthly</changefreq>
@@ -225,6 +231,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:日常与社交</loc>
 		<lastmod>2021-10-18</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:算法</loc>
+		<lastmod>2021-11-02</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
