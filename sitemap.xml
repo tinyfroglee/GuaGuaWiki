@@ -91,6 +91,12 @@
 		<priority>0.5</priority>
 	</url>
 	<url>
+		<loc>https://onetwo.ren/wiki/#:Python</loc>
+		<lastmod>2021-11-19</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
 		<loc>https://onetwo.ren/wiki/#:QA%2520环节</loc>
 		<lastmod>2021-10-20</lastmod>
 		<changefreq>monthly</changefreq>
@@ -141,6 +147,12 @@
 	<url>
 		<loc>https://onetwo.ren/wiki/#:gRPC</loc>
 		<lastmod>2021-10-22</lastmod>
+		<changefreq>monthly</changefreq>
+		<priority>0.5</priority>
+	</url>
+	<url>
+		<loc>https://onetwo.ren/wiki/#:pip</loc>
+		<lastmod>2021-11-19</lastmod>
 		<changefreq>monthly</changefreq>
 		<priority>0.5</priority>
 	</url>
