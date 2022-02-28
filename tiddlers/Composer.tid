@@ -1,21 +1,14 @@
 created: 20211025022309065
 creator: GuaGua
-modified: 20211025081341586
-modifier: GuaGua
+modified: 20220228011232867
+modifier: GuaGu
 tags: PHP
 title: Composer
 tmap.id: 70ac5d87-20b1-4de1-bd22-27643f7f8bd5
 type: text/vnd.tiddlywiki
 
-[[Composer官网|https://docs.phpcomposer.com/00-intro.html]]
-
-!! 执行方式
-
-`composer command`：使用默认版本的 PHP 执行
-
-`xxx/php7.4.2/bin/php composer.phar command`：指定 PHP 版本执行
+直接运行 composer 时，
 
 ```bash
-# 将指定 PHP 版本执行打包为 composer 命令
 echo '/Applications/MAMP/bin/php/php7.4.16/bin/php /Applications/MAMP/bin/php/php7.4.16/bin/composer.phar $@' > composer
 ```
